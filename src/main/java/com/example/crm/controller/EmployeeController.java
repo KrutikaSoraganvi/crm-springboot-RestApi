@@ -44,6 +44,7 @@ public class EmployeeController {
             employeeService.deleteEmployeeById(id);
             System.out.println("2000");
             System.out.println("2000");
+             System.out.println("deleted");
             return "Employee with ID " + id + " deleted successfully.";
         } catch (RuntimeException e) {
             return e.getMessage();
