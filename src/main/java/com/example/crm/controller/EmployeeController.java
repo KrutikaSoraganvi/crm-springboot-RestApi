@@ -5,8 +5,11 @@ import com.example.crm.service.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import java.sql.SQLOutput;
 
 @RestController
 @RequestMapping("api/v1/employee")
@@ -31,10 +34,16 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeDto, HttpStatus.CREATED);
     }
 
+
+
+
+
     @DeleteMapping("/{id}")
     public String deleteEmployee(@PathVariable long id) {
         try {
             employeeService.deleteEmployeeById(id);
+            System.out.println("2000");
+            System.out.println("2000");
             return "Employee with ID " + id + " deleted successfully.";
         } catch (RuntimeException e) {
             return e.getMessage();
